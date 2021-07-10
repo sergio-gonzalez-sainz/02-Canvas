@@ -36,30 +36,39 @@ function dibujoPorClick()
 {
     var lineas = parseInt(texto.value);
     var valor = lineas * 1;
+    
     if(isNaN(valor))
     {
         alert("Ingresa un valor numérico");
         lienzo.clearRect(0, 0, d.width, d.height);
     }
-    else
-    {
-        /*  Para obtener el valor de un formulario llamo al ATRIBUTO del OBJETO texto
-            y conviento el texto en entero con la función parseInt */
-        var l = 0;
-        var  xi, yi, xf, yf ;
-        var espacio = ancho / lineas; 
-        lienzo.clearRect(0, 0, d.width, d.height);
-        while(l < lineas)
+    else 
+        if(valor === 0)
         {
-            xi = espacio * l;
-            yi = espacio * l;
-            xf = espacio * (l + 1);
-            yf = espacio * (l + 1);
+            alert("Ingrese un valor mayor a cero.");
+        } else 
+            if(valor < 0)
+            {
+                alert("Ingrese un valor positivo.");
+            } else
+                {
+                    /*  Para obtener el valor de un formulario llamo al ATRIBUTO del OBJETO texto
+                        y conviento el texto en entero con la función parseInt */
+                    var l = 0;
+                    var  xi, yi, xf, yf ;
+                    var espacio = ancho / lineas; 
+                    lienzo.clearRect(0, 0, d.width, d.height);
+                    while(l < lineas)
+                    {
+                        xi = espacio * l;
+                        yi = espacio * l;
+                        xf = espacio * (l + 1);
+                        yf = espacio * (l + 1);
 
-            /*Mando a llamar la función con los parámetros */
-            dibujarLinea("blue", 0, yi, xf, 300);
-            dibujarLinea("blue", xi, 0, 300, yf);
-            l = l + 1;
-        }
-    }
+                        /*Mando a llamar la función con los parámetros */
+                        dibujarLinea("blue", 0, yi, xf, 300);
+                        dibujarLinea("blue", xi, 0, 300, yf);
+                        l = l + 1;
+                    }
+                }
 }
