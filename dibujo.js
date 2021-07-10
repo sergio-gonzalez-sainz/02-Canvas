@@ -39,6 +39,7 @@ function dibujoPorClick()
     if(isNaN(valor))
     {
         alert("Ingresa un valor numérico");
+        lienzo.clearRect(0, 0, d.width, d.height);
     }
     else
     {
